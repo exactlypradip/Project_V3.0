@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Happy Women's Day</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Poppins:wght@300;400;600;800&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="orb-container"></div>
+    <div id="particles-container"></div>
+    
+    <div class="cute-cloud" style="top: 10%; left: -20%; animation-duration: 25s;">☁️</div>
+    <div class="cute-cloud" style="top: 30%; right: -20%; animation-duration: 35s; font-size: 80px;">☁️</div>
+    <div class="cute-cloud" style="top: 60%; left: -20%; animation-duration: 20s; font-size: 100px;">☁️</div>
+
+    <div id="app">
+        <div id="page-intro" class="page active">
+            <div class="card-mascot top-peek bounce-heavy">🐰</div>
+            <h1 class="fade-in candy-title hover-squish"><span class="candy-gradient">Hey, I made something for you</span> 💕</h1>
+            <div class="gift-box bounce interactive-hover" style="font-size: 85px;">🎁</div>
+            <div class="buttons fade-in-delayed">
+                <button class="btn glow magnetic-btn squish-hover heartbeat-slow" onclick="goToPage('page-yes')">YES ✨</button>
+                <button class="btn glow squish-hover" onclick="goToPage('page-no')">NO 🫣</button>
+            </div>
+        </div>
+
+        <div id="page-no" class="page">
+            <div class="popup-card marshmallow-card">
+                <div class="card-mascot top-peek sad-wobble">😿</div>
+                <h1 class="bounce-heavy" style="font-size: 2.8rem; color: #ff4f4f;">How dare you 😤</h1>
+                <p class="cute-font" style="margin-top: 10px; font-size: 2rem; color: #555;">Click YES right now or else... 😤</p>
+                <button class="btn glow mt-15 magnetic-btn squish-hover" onclick="goToPage('page-intro')">Okay fine, I'll click YES 🙄</button>
+            </div>
+        </div>
+
+        <div id="page-yes" class="page">
+            <div class="popup-card tilt-card marshmallow-card" style="max-width: 650px;">
+                <div class="card-mascot left-peek float">🧸</div>
+                <div class="card-mascot right-peek float" style="animation-delay: 1s;">🧸</div>
+                
+                <div class="magic-gift-container" onclick="openMagicGift(event)">
+                    <div id="the-gift" class="giant-emoji heartbeat-fast interactive-hover" style="margin: 0;">💝</div>
+                    <p id="tap-instruction" class="blink-text" style="color: #ff69b4; font-weight: 800; margin-top: -10px;">(Tap to open! ✨)</p>
+                </div>
+                
+                <h1 id="type-yes-1" class="cute-font typing-text glow-text hidden" style="font-size: 2.2rem; margin-top: 5px; margin-bottom: 5px;"></h1>
+                
+                <div id="special-womens-day" class="hidden soft-cute-title" onmousemove="spawnGentleSparkle(event)" onclick="triggerMiniBurst(event.clientX, event.clientY, 'magic', false)">
+                    🎀 <span class="candy-gradient-anim">Happy Women's Day!</span> 🎀
+                </div>
+
+                <p id="type-yes-2" class="typing-text hidden" style="font-size: 1.1rem; color: #555; font-weight: 700; margin-top: 5px;"></p>
+                
+                <button class="btn glow hidden mt-15 pulse-btn magnetic-btn squish-hover" id="btn-see-gifts" onclick="goToPage('page-gifts')">See My Gifts 🌷</button>
+            </div>
+        </div>
+
+        <div id="page-gifts" class="page">
+            <h2 class="candy-title hover-squish" style="font-size: 2.2rem;"><span class="candy-gradient">Pick a Mystery Box</span> 🥰</h2>
+            <div class="grid">
+                <div class="cute-box marshmallow-card squish-hover" onclick="handleBurstGift(this, 'flower')">
+                    <div class="cute-box-content">💝<br><span>Pick Me!</span></div>
+                </div>
+                <div class="cute-box marshmallow-card squish-hover" onclick="handleBurstGift(this, 'chocolate')">
+                    <div class="cute-box-content">🎁<br><span>Open Me!</span></div>
+                </div>
+                <div class="cute-box marshmallow-card squish-hover" onclick="handleBurstGift(this, 'message')">
+                    <div class="cute-box-content">🛍️<br><span>Choose Me!</span></div>
+                </div>
+                <div class="cute-box marshmallow-card squish-hover" onclick="handleBurstGift(this, 'compliment')">
+                    <div class="cute-box-content">🎀<br><span>Click Me!</span></div>
+                </div>
+            </div>
+            <button class="btn glow mt-15 magnetic-btn squish-hover" onclick="goToPage('page-final')">Finish Surprise 🦋</button>
+        </div>
+
+        <div id="page-flower" class="page gift-detail">
+            <div class="popup-card marshmallow-card">
+                <div class="icon-large float interactive-hover">🌸</div>
+                <h2 id="type-flower" class="cute-font typing-text"></h2>
+                <button class="btn glow magnetic-btn squish-hover" onclick="goToPage('page-gifts')">Back to Gifts 🎀</button>
+            </div>
+        </div>
+
+        <div id="page-chocolate" class="page gift-detail">
+            <div class="popup-card marshmallow-card">
+                <div class="icon-large float interactive-hover">🍫</div>
+                <h2 id="type-chocolate" class="cute-font typing-text"></h2>
+                <button class="btn glow magnetic-btn squish-hover" onclick="goToPage('page-gifts')">Back to Gifts 🎀</button>
+            </div>
+        </div>
+
+        <div id="page-message" class="page gift-detail">
+            <div class="popup-card marshmallow-card">
+                <div class="icon-large float interactive-hover">💌</div>
+                <h2 id="type-message" class="cute-font typing-text"></h2>
+                <button class="btn glow magnetic-btn squish-hover" onclick="goToPage('page-gifts')">Back to Gifts 🎀</button>
+            </div>
+        </div>
+
+        <div id="page-compliment" class="page gift-detail">
+            <div class="popup-card marshmallow-card">
+                <div class="icon-large float interactive-hover">🧸</div>
+                <h2 id="type-compliment" class="cute-font typing-text glow-text"></h2>
+                <button class="btn glow magnetic-btn squish-hover" onclick="goToPage('page-gifts')">Back to Gifts 🎀</button>
+            </div>
+        </div>
+
+        <div id="page-final" class="page">
+            <div class="popup-card final-card tilt-card marshmallow-card">
+                <div class="card-mascot top-peek bounce-heavy" style="top: -25px;">🐱</div>
+                
+                <p class="cute-font hover-squish" style="font-size: 1.8rem; color: #ff1493; margin-bottom: 0;">To the most amazing girl,</p>
+                
+                <div class="interactive-centerpiece" onclick="shootConfetti()">
+                    <span id="magic-crown" class="giant-emoji heartbeat-slow" style="font-size: 85px; margin: 5px 0;">👑</span>
+                </div>
+                
+                <h1 class="soft-cute-title hover-squish" style="font-size: 2.5rem; margin: 5px 0;">
+                    <span class="candy-gradient-anim">Happy Women's Day!</span> 🌸
+                </h1>
+                
+                <p style="font-size: 1.1rem; color: #666; margin-top: 5px; font-weight: 700; line-height: 1.4; padding: 0 5px;">
+                    Keep shining, keep smiling,<br>and never forget how super special you are. 🥰
+                </p>
+                
+                <p class="blink-text" style="font-size: 0.9rem; color: #ff1493; margin-top: 10px; font-weight: 800;">
+                    (Psst... tap the crown! ✨)
+                </p>
+                
+                <button class="btn glow mt-15 magnetic-btn squish-hover" onclick="location.reload()">Restart Surprise 🔄</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
